@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "AI 核实器",
+  "version": "1.1.0",
+  "description": "选中文字或右键图片,用 DeepSeek/豆包 AI 核实、翻译、总结、解释(无需 API Key)",
+  "permissions": ["contextMenus", "storage", "tabs", "scripting", "declarativeNetRequest"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "options_page": "options.html",
+  "action": { "default_title": "AI 核实器 - 点击打开设置" },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["panel.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": ["https://chat.deepseek.com/*", "https://*.doubao.com/*"],
+      "js": ["ai-runner.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

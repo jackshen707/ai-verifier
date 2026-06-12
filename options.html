@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>AI 核实器 - 设置</title>
+  <style>
+    body{font:15px/1.8 system-ui,"Microsoft YaHei",sans-serif;max-width:560px;
+      margin:40px auto;padding:0 20px;color:#222}
+    h1{font-size:22px}
+    .card{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:18px;margin:16px 0}
+    label{display:block;padding:8px;border-radius:8px;cursor:pointer}
+    label:hover{background:#eef2f7}
+    button{cursor:pointer;border:none;border-radius:8px;padding:9px 18px;
+      background:#2563eb;color:#fff;font-size:14px;margin-right:8px}
+    button.ghost{background:#e2e8f0;color:#333}
+    #saved{color:#16a34a;margin-left:8px;opacity:0;transition:opacity .3s}
+    ol{padding-left:20px}
+    .tip{font-size:13px;color:#666}
+  </style>
+</head>
+<body>
+  <h1>🔍 AI 核实器 设置</h1>
+
+  <div class="card">
+    <b>选择 AI 服务:</b>
+    <label><input type="radio" name="provider" value="deepseek"> DeepSeek(chat.deepseek.com)</label>
+    <label><input type="radio" name="provider" value="doubao"> 豆包(www.doubao.com)</label>
+    <div style="margin-top:10px">
+      <button id="save">保存设置</button><span id="saved">✓ 已保存</span>
+    </div>
+    <p class="tip">💡 核实图片建议选豆包(识图能力较强);纯文字任务两者均可。</p>
+  </div>
+
+  <div class="card">
+    <b>登录状态:</b>
+    <p class="tip">本插件使用你浏览器中已登录的 AI 网站会话,首次使用前请先登录:</p>
+    <button class="ghost" id="openDs">打开 DeepSeek 登录</button>
+    <button class="ghost" id="openDb">打开豆包登录</button>
+  </div>
+
+  <div class="card">
+    <b>使用方法:</b>
+    <ol>
+      <li>在任意网页<b>选中一段文字</b>,右键后可选择:<br>
+        「🔍 核实选中内容」「🌐 翻译成简体中文」<br>
+        「📝 总结这段话」「💡 解释一下」</li>
+      <li>或在<b>图片上右键</b> → 「🔍 用 AI 核实这张图片」</li>
+      <li>结果会显示在当前页面右下角的悬浮面板中,可一键复制</li>
+    </ol>
+    <p class="tip">⚠️ 核实结果由 AI 生成,仅供参考,重要信息请多方查证。</p>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
